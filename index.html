@@ -4,7 +4,7 @@
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
-		<title>reveal.js</title>
+		<title>Presentation</title>
 
 		<link rel="stylesheet" href="css/reset.css">
 		<link rel="stylesheet" href="css/reveal.css">
@@ -25,8 +25,50 @@
 	<body>
 		<div class="reveal">
 			<div class="slides">
-				<section>Slide 1</section>
-				<section>Slide 2</section>
+				<section>
+                    <img data-src="pics/start-pic.png" alt="Title">
+                </section>
+				<section>
+                    <section>
+                        <h2>What is Webpack ?</h2>
+                        <p>Webpack is a static module module builder.
+                            This is important to understand, as Webpack does not run during your page,
+                            it runs during your development.</p>
+                    </section>
+                    <section>
+                        <h2>Webpack dependency graph </h2>
+                        <img height="400" data-src="pics/running-scheme.png" alt="Webpack running scheme">
+                    </section>
+                    <section>
+                    <h3>Webpack advantages</h3>
+                    <ul>
+                        <li>great for working with single page applications</li>
+                        <li>can carry out advanced code separation</li>
+                    </ul>
+                    </section>
+                    <section>
+                        <h3>Webpack disadvantages</h3>
+                        <ul>
+                            <li>difficult to understand his work at first time</li>
+                            <li>part of the documentation is outdated because of large number of changes</li>
+                        </ul>
+                    </section>
+                </section>
+                <section id="fragments">
+                    <h3>Abilityes</h3>
+                    <ul>
+                        <li class="fragment">bundle your resources</li>
+                        <li class="fragment">watch for changes and performs tasks repeatedly</li>
+                        <li class="fragment">transpose next-generation JavaScript to ES5 using Babel</li>
+                        <li class="fragment">transpose CoffeeScript to JavaScript</li>
+                        <li class="fragment">convert embedded images to data:URI</li>
+                        <li class="fragment">makes it possible to use require() for CSS files</li>
+                        <li class="fragment">can use webpack-dev-server and livereload</li>
+                        <li class="fragment">can use Hot Module Replacement </li>
+                        <li class="fragment">can split the output file into several files</li>
+                        <li class="fragment">can perform Tree Shaking</li>
+                    </ul>
+                </section>
 			</div>
 		</div>
 
