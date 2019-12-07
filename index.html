@@ -69,6 +69,77 @@
                         <li class="fragment">can perform Tree Shaking</li>
                     </ul>
                 </section>
+                <section data-markdown>
+                    <script type="text/template">
+                        ## Global installation
+
+                        Global installation by Yarn
+                        ```
+
+                        yarn global add webpack webpack-cli
+
+                        ```
+
+                        Global installation by npm
+                        ```
+
+                        npm i -g webpack webpack-cli
+
+                        ```
+
+                        Iinitiate webpack
+                        ```
+
+                        webpack-cli
+                        ```
+                    </script>
+                </section>
+                <section>
+                    <section data-markdown>
+                        <script type="text/template">
+                            ## Local Installation
+
+                            Local installation by Yarn
+                            ```
+
+                            yarn add webpack webpack-cli -D
+                            ```
+
+                            Local installation by npm
+                            ```
+
+                            npm i webpack webpack-cli --save-dev
+                            ```
+                        </script>
+                    </section>
+                    <section>
+                        <p>Add this lines to  <span class="highlight-blue">package.json</span> file:</p>
+                        <pre><code class="hljs" data-trim data-line-numbers="4,8-11">
+{
+  //...
+  "scripts": {
+    "build": "webpack"
+  }
+}
+                        </code></pre>
+                        <section data-markdown>
+                            <script type="text/template">
+                                Run Webpack by command:
+                                ```
+
+                                npm build
+                                ```
+                            </script>
+                        </section>
+                    </section>
+                </section>
+                <section>
+                    <p>Webpack has 2 interfaces:</p>
+                    <ol>
+                        <li>webpack CLI – interface by default  (installed as a part of Webpack and suitable for production builds).</li>
+                        <li>webpack-dev-server – server of Node.js (should be installed and suitable for development builds)</li>
+                    </ol>
+                </section>
 			</div>
 		</div>
 
