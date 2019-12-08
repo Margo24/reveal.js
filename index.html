@@ -242,7 +242,7 @@ module.exports = {
                 </section>
                 <section data-markdown>
                     <script type="text/template">
-                        Hot and inline optoins for webpack-dev-server
+                        ## Hot and inline optoins for webpack-dev-server
 
                         Reloads the entire browser page:
                         ```
@@ -287,6 +287,75 @@ module.exports = {
   /*...*/
 }
                         </code></pre>
+                </section>
+                <section>
+                    <section>
+                        <h3>Lazy loading</h3>
+                        <img data-src="pics/lazy-loading.png" alt="Title picture">
+                    </section>
+                    <section>
+                        <p>Lazy loading (also called on-demand loading) is an optimization technique
+                            for the online content, be it a website or a web app.</p>
+                        <p>Instead of loading the entire web page and rendering it to the user in one go as in bulk loading,
+                            the concept of lazy loading assists in loading only the required section and delays the remaining,
+                            until it is needed by the user.</p>
+                    </section>
+                    <section data-markdown>
+                        <script type="text/template">
+                            ## Route  URL structure
+
+                            ```
+                            Home: /
+                            Category listing: /category/42
+                            Product page: /product/1234
+                            Checkout: /checkout
+                            ```
+
+                        </script>
+                    </section>
+                    <section data-markdown>
+                        <script type="text/template">
+                            In addition, we don’t really need all the JavaScript for every route when the site is first loaded.
+                            But if you do naive bundling, you’re going to get a single massive file
+                            that would have to be fully loaded and parsed before anything happened:
+
+                            ```
+                            dist/
+                            big-bundle.js
+                            ```
+
+                        </script>
+                    </section>
+                    <section data-markdown>
+                        <script type="text/template">
+                            So what we’d end up with would be something along the lines of:
+
+                            ```
+                            dist/
+                            bundle-home.js
+                            bundle-category.js
+                            bundle-product.js
+                            bundle-checkout.js
+                            home.js
+                            category.js
+                            product.js
+                            checkout.js
+
+                            ```
+                        </script>
+                    </section>
+                    <section>
+                        <p>
+                            Only one of the bundle files would be loaded, depending on which route the user takes to get to the site.
+                            This file would then lazily load the other modules, as needed, without loading its own.
+                            So if the user were to come in through a product,
+                            they would load <b>bundle-product.js</b>, which would boot up the page and then would only fetch <b>home.js</b>,
+                            <b>category.js</b> and <b>checkout.js</b> if needed.
+                        </p>
+                    </section>
+                </section>
+                <section>
+                    <img data-src="pics/thats_all_folks.jpg" alt="Warner Bros. banner">
                 </section>
 			</div>
 		</div>
