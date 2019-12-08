@@ -113,8 +113,8 @@
                         </script>
                     </section>
                     <section>
-                        <p>Add this lines to  <span class="fragment highlight-blue">package.json</span> file:</p>
-                        <pre><code class="hljs" data-trim data-line-numbers="4,8-11">
+                        <p>Add this lines to  <b>package.json</b> file:</p>
+                        <pre><code class="hljs" data-trim data-line-numbers="3-5">
 {
   //...
   "scripts": {
@@ -149,7 +149,7 @@
                             <li>output: <span class="fragment highlight-green">./dist/main.js</span></li>
                             <li><span class="fragment highlight-green">production mode</span></li>
                         </ul>
-                        <p>Webpack configuration file - <span class="fragment highlight-green">webpack.config.js</span></p>
+                        <p>Webpack configuration file - <b>webpack.config.js</b></p>
                     </section>
                 </section>
                 <section>
@@ -177,7 +177,7 @@ module.exports = {
           }
     ]
 };
-                        </code></pre>
+                    </code></pre>
                 </section>
                 <section>
                     <section>
@@ -198,6 +198,95 @@ module.exports = {
                             <li>resulting JavaScript file is smaller </li>
                         </ul>
                     </section>
+                </section>
+                <section>
+                    <h3>File watcher</h3>
+                    <pre><code class="hljs" data-trim data-line-numbers="3-5">
+{
+  //...
+  "scripts": {
+    "watch": "webpack --watch"
+  }
+}
+                    </code></pre>
+                    <section data-markdown>
+                        <script type="text/template">
+                            Run file watcher by command:
+                            ```
+
+                            npm run watch
+                            ```
+                        </script>
+                    </section>
+                </section>
+                <section>
+                    <section>
+                        <h3>Source Maps</h3>
+                        <p>Devtool configuration property:</p>
+                        <pre><code class="hljs" data-trim data-line-numbers="3">
+module.exports = {
+  /*...*/
+  devtool: 'inline-source-map',
+  /*...*/
+}
+                        </code></pre>
+                    </section>
+                    <section>
+                        <h3>Devtool most commonly used meanings:</h3>
+                        <ul>
+                            <li>none</li>
+                            <li>source-map</li>
+                            <li>inline-source-map</li>
+                        </ul>
+                    </section>
+                </section>
+                <section data-markdown>
+                    <script type="text/template">
+                        Hot and inline optoins for webpack-dev-server
+
+                        Reloads the entire browser page:
+                        ```
+
+                        webpack-dev-server --inline
+                        ```
+
+                        Reloads just the module(HMR), or the entire page if HMR fails:
+                        ```
+
+                        webpack-dev-server  --inline --hot
+                        ```
+                    </script>
+                </section>
+                <section>
+                    <h3>Enabling HMR:</h3>
+                    <ol>
+                        <li>WDS has to run in the hot mode to expose the hot module replacement interface to the client</li>
+                        <li>Webpack has to provide hot updates to the server and can be achieved using webpack.HotModuleReplacementPlugin</li>
+                        <li>The client has to run specific scripts provided by the WDS. They will be injected automatically but can be enabled explicitly through entry configuration</li>
+                        <li>The client has to implement the HMR interface through <b>module.hot.accept</b></li>
+                    </ol>
+                </section>
+                <section>
+                    <h3>Add to configuration file</h3>
+                    <pre><code class="hljs" data-trim data-line-numbers="3,6,11,14">
+module.exports = {
+  /*...*/
+  devServer: {
+    // Don't refresh if hot loading fails. Good while
+    // implementing the client interface.
+    hotOnly: true,
+
+    // If you want to refresh on errors too, set
+    // hot: true,
+  },
+  plugins: [
+    // Enable the plugin to let webpack communicate changes
+    // to WDS. --hot sets this automatically!
+    new webpack.HotModuleReplacementPlugin(),
+  ],
+  /*...*/
+}
+                        </code></pre>
                 </section>
 			</div>
 		</div>
